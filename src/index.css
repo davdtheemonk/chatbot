@@ -7,3 +7,12 @@
 * {
   font-family: "League Spartan", sans-serif !important;
 }
+
+.custom-input {
+  background-color: white;
+  color: black;
+  outline: none;
+  border-color: gray;
+  padding-left: 10px;
+  padding-right: 10px;
+}

@@ -1,8 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../Button";
 
 export const LpHeader = () => {
   const path = useLocation();
+  const nav = useNavigate();
   return (
     <div className="w-full h-[60px] fixed top-0 border-b border-dark border-opacity-10 md:px-80 px-5 flex flex-row justify-center items-center">
       <p>Skill Chat Bot</p>
@@ -34,6 +35,9 @@ export const LpHeader = () => {
       </div>
       <Button
         title="Sign Up"
+        action={() => {
+          nav("/sign-up");
+        }}
         style="ml-auto bg-primary p-2 text-white rounded-md flex justify-center items-center"
       />
     </div>
