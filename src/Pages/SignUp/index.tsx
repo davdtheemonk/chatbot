@@ -3,11 +3,11 @@ import { Button } from "../../Components/Button";
 import InputBox from "../../Components/InputBox";
 
 export const SignUp = () => {
-  const [firstname,setFirstname] = useState("")
-  const [lastname,setLastname] = useState("")
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
 
-  const [email,setEmail]= useState("") 
-   return (
+  const [email, setEmail] = useState("");
+  return (
     <div className="h-screen md:px-80 px-5 flex justify-start items-start  py-10 flex flex-col gap-5">
       <div className="bg-white p-5  flex flex-col gap-4 text-sm w-[350px] m-auto justify-center items-center ">
         <p className="font-bold text-xl">Register</p>
@@ -15,13 +15,13 @@ export const SignUp = () => {
           <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content ">
             Firstname
           </p>
-          <InputBox title="John" value={firstname} setValue={setFirstname}/>
+          <InputBox title="John" value={firstname} setValue={setFirstname} />
         </div>
         <div className="flex flex-col justify-start items-start gap-2 w-full">
           <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content ">
             Lastname
-          </p
-          <InputBox title="Doe" value={lastname} setValue={setLastname}/>
+          </p>
+          <InputBox title="Doe" value={lastname} setValue={setLastname} />
         </div>
         <div className="flex flex-col justify-start items-start gap-2 w-full">
           <p className="text-tremor-default text-tremor-content dark:text-dark-tremor-content ">
