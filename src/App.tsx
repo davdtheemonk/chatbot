@@ -5,10 +5,12 @@ import { LpSection } from "./Components/LpSection";
 import { LpAbout } from "./Components/LpAbout";
 import { LpHowItWorks } from "./Components/LpHowItWorks";
 import { SignUp } from "./Pages/SignUp";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <BrowserRouter>
+      <Toaster position="top-right" />
       <Routes>
         <Route element={<Landing />}>
           <Route path="/" element={<LpSection />} />
