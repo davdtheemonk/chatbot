@@ -16,3 +16,20 @@
   padding-left: 10px;
   padding-right: 10px;
 }
+
+.custom-textbox {
+  background-color: white;
+  color: black;
+
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.custom-div:hover {
+  box-shadow: 10px 10px 15px rgba(45, 62, 80, 0.2);
+}
+
+.chat::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge, Opera */
+}

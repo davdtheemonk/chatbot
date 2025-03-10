@@ -3,6 +3,7 @@ import { Button } from "../../Components/Button";
 import InputBox from "../../Components/InputBox";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
   const [firstname, setFirstname] = useState("");
@@ -12,6 +13,7 @@ export const SignUp = () => {
   const [password, setPassword] = useState("");
   const [purpose, setPurpose] = useState("");
   const [loading, setLoading] = useState(false);
+  const nav = useNavigate();
   const signUp = async () => {
     setLoading(true);
     try {
@@ -23,7 +25,10 @@ export const SignUp = () => {
         email,
       });
       toast.success("Registered successfuly");
-    } catch (e) {
+      setTimeout(() => {
+        nav("/login");
+      }, 500);
+    } catch (e: any) {
       toast.error(e.response.data.message);
     } finally {
       setLoading(false);

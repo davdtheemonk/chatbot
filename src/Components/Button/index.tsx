@@ -4,7 +4,6 @@ export const Button = ({
   style,
   action,
 
-  disabled,
   loading,
   icon,
   src,
@@ -13,8 +12,7 @@ export const Button = ({
   action?: () => void;
   style?: string;
   src?: string;
-  disabled?: string;
-  loading: boolean;
+  loading?: boolean;
   icon?: string;
 }) => {
   return (

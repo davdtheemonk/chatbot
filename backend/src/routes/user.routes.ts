@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { User, validate } from "../models/user.model";
+import { User, validate, validateLogin } from "../models/user.model";
 import bcrypt from "bcrypt";
 export const router = Router();
 
@@ -46,5 +46,40 @@ router.route("/register").post(async (req, res) => {
     } else {
       return res.status(500).send({ message: "Internal Server Error!" });
     }
+  }
+});
+
+//@ts-ignore
+router.route("/login").post(async (req, res) => {
+  try {
+    const { error } = validateLogin(req.body);
+
+    if (error) {
+      return res.status(400).send({ message: error.details[0].message });
+    }
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      return res.status(401).send({ message: "Invalid Email or Password" });
+    }
+    const token = user.generateAuthToken();
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!validPassword) {
+      return res.status(400).send({ message: "Invalid Email or Password" });
+    }
+    return res.status(200).send({
+      authToken: token,
+      _id: user._id,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email,
+    });
+  } catch (error: any) {
+    if (error && error._message) {
+      return res.status(500).send({ message: error?._message });
+    }
+    return res.status(500).send({ message: "Internal Server Error!" });
   }
 });
