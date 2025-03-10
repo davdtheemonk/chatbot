@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { ComponentProps, UserBasicInfo } from "../../types";
 

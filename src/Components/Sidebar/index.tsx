@@ -7,7 +7,7 @@ import { SiHyperskill } from "react-icons/si";
 const Sidebar: React.FC<SidebarProps> = (props) => {
   const sidebarItems: SidebarItemProps[] = [
     {
-      title: "New Chat",
+      title: "Chat",
       id: 0,
       icon: <BiMessageSquareAdd className="w-6 h-6 " />,
       link: "/app",

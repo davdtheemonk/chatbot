@@ -12,6 +12,7 @@ import { sendMessage } from "../../utils";
 import { Chat } from "../../Components/Chat";
 import { socket } from "../../api/axiosInstance";
 import { PiPlugsConnected } from "react-icons/pi";
+import { Button } from "../../Components/Button";
 export const Home = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -66,18 +67,18 @@ export const Home = () => {
           setLoading={setLoading}
         />
       ) : (
-        <div className=" flex m-auto flex-col w-[50.5%]  justify-center items-center gap-4">
+        <div className=" flex m-auto flex-col md:w-[50.5%] lg:w-[70%]  w-full justify-center items-center gap-4">
           <p className="text-3xl font-[500] text-start text-[#2d3e50]">
             What would you love to do?
           </p>
-          <div className="w-full flex grid gap-4  lg:grid-cols-2  md:grid-cols-1 ">
+          <div className=" grid gap-2  mb-4 lg:grid-cols-2 2xl:grid-cols-2 md:grid-cols-2 m-auto justify-center items-center ">
             {demoTask.map((task) => (
               <div
                 key={task.id}
                 onClick={() => {
                   setMessage(task.text);
                 }}
-                className="w-[380px] custom-div cursor-pointer   rounded-md border border-dark border-opacity-10 p-4 gap-3 flex flex-row justify-start items-start"
+                className="md:w-[310px] w-full custom-div cursor-pointer bg-white   rounded-md border border-dark border-opacity-10 p-4 gap-3 flex flex-row justify-start items-start"
               >
                 <div className="bg-light w-[50px] h-[50px]  rounded-md flex justify-center items-center border border-dark border-opacity-10">
                   {task.icon}
@@ -98,6 +99,7 @@ export const Home = () => {
             setValue={setMessage}
             loading={loading}
             action={() => {
+              if (!message) return;
               setLoading(true);
               const time =
                 dayjs(new Date()).hour() +

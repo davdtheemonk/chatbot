@@ -11,7 +11,7 @@ export const SignUp = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [purpose, setPurpose] = useState("");
+  const [purpose, setPurpose] = useState("Start a New Learning Journey");
   const [loading, setLoading] = useState(false);
   const nav = useNavigate();
   const signUp = async () => {
@@ -73,9 +73,8 @@ export const SignUp = () => {
             Purpose
           </p>
           <select
-            defaultValue={"Start a New Learning Journey"}
+            defaultValue={purpose}
             onChange={(e) => {
-              console.log(e);
               setPurpose(e.target.value);
             }}
             className="custom-input  border border-white border-opacity-1 color-white  w-full h-[35px] rounded-md"
